@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$1" = "kai" ] ; then
-	if [ -d "cns11643/" ] ; then
+	if [ -d "Open_Data/" ] ; then
 		cp -i Open_Data/Fonts/TW-Kai-*.ttf $HOME/.fonts
 	else
 		cp -i data/TW-Kai-*.ttf $HOME/.fonts
@@ -9,7 +9,7 @@ if [ "$1" = "kai" ] ; then
 fi
 
 if [ "$1" = "sung" ] ; then
-	if [ -d "cns11643/" ] ; then
+	if [ -d "Open_Data/" ] ; then
 		cp -i Open_Data/Fonts/TW-Sung-*.ttf $HOME/.fonts
 	else
 		cp -i data/TW-Sung-*.ttf $HOME/.fonts
