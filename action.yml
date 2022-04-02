@@ -1,0 +1,32 @@
+name: 'Install CNS11643 fonts'
+description: 'Install CNS11643 fonts'
+author: hms5232
+inputs:
+  download-latest:
+    description: 'Download fonts file instead use storage version'
+    required: false
+    default: false
+  kai:
+    description: 'Install 正楷體 or not'
+    required: false
+    default: true
+  sung:
+    description: 'Install 正宋體 or not'
+    required: false
+    default: true
+defaults:
+  run:
+    shell: bash
+runs:
+  using: "composite"
+  steps:
+    - run: init.sh
+    - run: download.sh
+      if:  ${{ github.event.inputs.download-latest == 'true' }}
+    - run: copy.sh kai
+      if:  ${{ github.event.inputs.kai == 'true' }}
+    - run: copy.sh sung
+      if:  ${{ github.event.inputs.sung == 'true' }}
+    - run: install.sh
+    - run: clear.sh
+      if:  ${{ github.event.inputs.download-latest == 'true' }}
